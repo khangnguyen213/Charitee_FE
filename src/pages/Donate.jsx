@@ -70,6 +70,9 @@ const Donate = () => {
             onSubmit={handleSubmit(onSubmit)}
           >
             <h1 className="font-[Jost] font-bold text-2xl">Your Donation</h1>
+            {errors.amount && (
+              <AlertMessage>{errors.amount.message}</AlertMessage>
+            )}
             <div
               className="grid grid-cols-4 md:grid-cols-2 xl:grid-cols-4 gap-4 w-full mt-2 mb-3"
               role="toolbar"
@@ -127,7 +130,10 @@ const Donate = () => {
                 placeholder="Donation Amount"
                 min={1}
                 required
-                {...register("amount", { required: true, min: 1 })}
+                {...register("amount", {
+                  required: "This field is required",
+                  min: { value: 1, message: "Donation amount must be postive" },
+                })}
               />
             </div>
 
@@ -136,9 +142,12 @@ const Donate = () => {
             </p>
             <h1 className="font-[Jost] font-bold text-2xl my-3">
               Payment Method
+              {errors.amount && (
+                <AlertMessage>{errors.amount.message}</AlertMessage>
+              )}
             </h1>
             <input
-              {...register("method", { required: true })}
+              {...register("method", { required: "This field is required" })}
               type="radio"
               value="PayPal"
               id="radio01"
