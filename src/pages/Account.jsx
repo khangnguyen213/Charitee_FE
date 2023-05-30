@@ -22,11 +22,12 @@ const Account = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    setIsLoading(true);
     alertify.confirm(
       "Notification",
       "Update account?",
       function () {
+        setIsLoading(true);
+
         axios
           .put(`${Global.BASE_BACKEND_API}/account/${session._id}`, data, {
             withCredentials: true,
