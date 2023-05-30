@@ -1,24 +1,18 @@
 import React from "react";
-import footer1 from "../assests/images/footer1.png";
+import footer1 from "../assests/images/bg1_1.png";
 
 const Footer = () => {
   return (
-    <div className="font-['Rubik'] h-fit container bg-[#263B5C] px-6 py-12 text-white mx-auto">
+    <div className="font-['Rubik'] h-fit w-screen lg:container bg-[#263B5C] sm:px-6 sm:pt-6 sm:pb-3 text-white lg:mx-auto">
       <section className="">
-        <div className="flex justify-center">
-          <div className="text-center lg:max-w-3xl md:max-w-xl">
-            <h2 className="text-3xl font-bold mb-12 px-6">Contact us</h2>
-          </div>
-        </div>
-
         <div className="flex flex-wrap">
           <div className="grow-0 shrink-0 basis-auto mb-12 lg:mb-0 w-full md:w-5/12 px-3 md:px-6">
             <img src={footer1} className="object-fit" alt="" />
           </div>
-          <div className="grow-0 shrink-0 basis-auto w-full md:w-7/12">
-            <div className="flex flex-wrap">
-              <div className="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 px-3 md:px-6">
-                <div className="flex items-start">
+          <div className="w-full md:w-7/12">
+            <div className="flex flex-wrap min-w-fit">
+              <div className="min-w-fit grow-0 shrink-0 basis-auto mb-3 md:mb-6 lg:mb-12 w-full md:w-6/12 px-3 lg:px-6">
+                <div className="flex items-start min-w-fit">
                   <div className="shrink-0">
                     <div className="p-4 bg-[#F15B43] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                       <svg
@@ -39,14 +33,16 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="grow ml-6">
-                    <p className="font-bold mb-1 text-xl">Technical support</p>
+                    <p className="font-bold mb-1 text-base lg:text-xl">
+                      Technical support
+                    </p>
                     <p className="">support@example.com</p>
                     <p className="">+1 234-567-89</p>
                   </div>
                 </div>
               </div>
-              <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                <div className="flex items-start">
+              <div className="min-w-fit grow-0 shrink-0 basis-auto mb-3 md:mb-6 lg:mb-12 w-full md:w-6/12 px-3 lg:px-6">
+                <div className="flex items-start min-w-fit">
                   <div className="shrink-0">
                     <div className="p-4 bg-[#F15B43] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                       <svg
@@ -67,14 +63,16 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="grow ml-6">
-                    <p className="font-bold mb-1 text-xl">Sales questions</p>
+                    <p className="font-bold mb-1 text-base lg:text-xl">
+                      Sales questions
+                    </p>
                     <p className="">sales@example.com</p>
                     <p className="">+1 234-567-89</p>
                   </div>
                 </div>
               </div>
-              <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                <div className="flex align-start">
+              <div className="min-w-fit grow-0 shrink-0 basis-auto mb-3 md:mb-6 lg:mb-12 w-full md:w-6/12 px-3 lg:px-6">
+                <div className="min-w-fit flex align-start">
                   <div className="shrink-0">
                     <div className="p-4 bg-[#F15B43] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                       <svg
@@ -95,14 +93,14 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="grow ml-6">
-                    <p className="font-bold mb-1 text-xl">Press</p>
+                    <p className="font-bold mb-1 text-base lg:text-xl">Press</p>
                     <p className="">press@example.com</p>
                     <p className="">+1 234-567-89</p>
                   </div>
                 </div>
               </div>
-              <div className="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6">
-                <div className="flex align-start">
+              <div className="min-w-fit grow-0 shrink-0 basis-auto mb-3 md:mb-6 lg:mb-12 w-full md:w-6/12 px-3 lg:px-6">
+                <div className="min-w-fit flex align-start">
                   <div className="shrink-0">
                     <div className="p-4 bg-[#F15B43] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                       <svg
@@ -123,7 +121,9 @@ const Footer = () => {
                     </div>
                   </div>
                   <div className="grow ml-6">
-                    <p className="font-bold mb-1 text-xl">Bug report</p>
+                    <p className="font-bold mb-1 text-base lg:text-xl">
+                      Bug report
+                    </p>
                     <p className="">bugs@example.com</p>
                     <p className="">+1 234-567-89</p>
                   </div>
