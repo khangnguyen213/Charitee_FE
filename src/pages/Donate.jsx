@@ -56,7 +56,7 @@ const Donate = () => {
       setIsLoading(false);
       alertify.alert(
         "Notification",
-        "This payment method is currently available"
+        "This payment method is currently unavailable"
       );
     }
   };
@@ -258,7 +258,9 @@ const Donate = () => {
                   <input
                     className="rounded-md hover:bg-[#ffffff] uppercase hover:text-[#ee5e48] font-[Jost] font-bold py-2 mt-5 text-lg bg-transparent border-2 hoverborder-transparent border-white duration-300 text-white hover:text-xl cursor-pointer"
                     type="submit"
-                  />
+                  >
+                    SUBMIT
+                  </input>
                 )}
                 {(overdue || finished) && (
                   <p
