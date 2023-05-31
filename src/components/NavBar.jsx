@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import logo from "../assests/images/logo.webp";
 import { AiFillHeart } from "react-icons/ai";
-import { BsSearchHeartFill } from "react-icons/bs";
+import { BsSearchHeart } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import DropdownButton from "./DropdownButton";
 import { useDispatch, useSelector } from "react-redux";
@@ -55,10 +55,10 @@ const NavBar = () => {
           Explore
         </button>
         <button
-          className="block xs-0:hidden font-[Jost] text-base xs-1:text-xl ml-4 sm:ml-8"
+          className="block xs-0:hidden hover:bg-slate-500 font-[Jost] text-base xs-1:text-xl ml-4 sm:ml-8"
           onClick={exploreClickHandler}
         >
-          <BsSearchHeartFill />
+          <BsSearchHeart />
         </button>
       </div>
 
