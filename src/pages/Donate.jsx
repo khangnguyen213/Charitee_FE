@@ -255,12 +255,12 @@ const Donate = () => {
                   Bank Transfer
                 </label>
                 {!overdue && !finished && (
-                  <input
+                  <button
                     className="rounded-md hover:bg-[#ffffff] uppercase hover:text-[#ee5e48] font-[Jost] font-bold py-2 mt-5 text-lg bg-transparent border-2 hoverborder-transparent border-white duration-300 text-white hover:text-xl cursor-pointer"
                     type="submit"
                   >
                     SUBMIT
-                  </input>
+                  </button>
                 )}
                 {(overdue || finished) && (
                   <p
