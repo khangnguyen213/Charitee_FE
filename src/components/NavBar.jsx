@@ -55,7 +55,7 @@ const NavBar = () => {
           Explore
         </button>
         <button
-          className="block xs-0:hidden hover:bg-slate-500 font-[Jost] text-base xs-1:text-xl ml-4 sm:ml-8"
+          className="block xs-0:hidden hover:bg-slate-500 rounded-full font-[Jost] text-base xs-1:text-xl ml-4 sm:ml-8"
           onClick={exploreClickHandler}
         >
           <BsSearchHeart />
