@@ -53,14 +53,10 @@ export const Causes = (props) => {
             causes.map((cause) => {
               return (
                 <div className="mb-6 lg:mb-0 " key={cause._id}>
-                  <div className="relative flex flex-col justify-between h-[600px] bg-[#F4F2F1] rounded-lg ">
+                  <div className="relative bg-[#F4F2F1] rounded-lg ">
                     <div className="flex">
                       <div className="relative h-[264px] overflow-hidden bg-no-repeat bg-cover rounded-lg mx-4 -mt-4">
-                        <img
-                          src={cause.image}
-                          alt="cause"
-                          className="w-full h-full"
-                        />
+                        <img src={cause.image} alt="cause" className="w-full" />
                         <button
                           onClick={() => navigate(`/donate/${cause._id}`)}
                         >
