@@ -7,7 +7,6 @@ This repository only includes the front-end part of my website. You can visit th
 Technologies I used include:
 
 - ReactJS
-- NodeJS (using ExpressJS framework)
 - TailwindCSS
 
 I also used:
