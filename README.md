@@ -2,6 +2,8 @@
 
 This is the website I made for my capstone project in the web-fullstack course. The website was developed with the purpose of helping charitable organizations collect donations from the community conveniently and quickly. At the same time, Charitee also helps users find ongoing charities and participate in charitable activities.
 
+This repository only includes the front-end part of my website. You can visit the back-end part [here](https://github.com/khangnguyen213/Charitee_BE).
+
 Technologies I used include:
 
 - ReactJS
