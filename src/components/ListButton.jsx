@@ -1,13 +1,13 @@
-import React from "react";
-import axios from "axios";
-import Global from "../global";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/sessionSlice";
-import { useNavigate } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import axios from 'axios';
+import Global from '../global';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../redux/sessionSlice';
+import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 const ListButton = () => {
@@ -23,10 +23,10 @@ const ListButton = () => {
       .then((res) => {
         if (res.status === 200) {
           dispatch(logout());
-          navigate("/", { replace: true });
+          navigate('/', { replace: true });
         }
       })
-      .catch((err) => navigate("/404"));
+      .catch((err) => navigate('/404'));
   };
   return (
     <div className="hidden md-2:inline-block ease-out duration-300">
@@ -36,69 +36,43 @@ const ListButton = () => {
           className={({ isActive }) =>
             classNames(
               isActive
-                ? "bg-[#F15B43] text-white"
-                : "text-gray-300 hover:bg-gray-700 hover:text-white",
-              "rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
+                ? 'bg-[#F15B43] text-white'
+                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+              'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
             )
           }
         >
-          {session.fullname ? session.fullname : "Account"}
+          {session.fullname
+            ? session.fullname[0].toUpperCase() + session.fullname.slice(1)
+            : 'Account'}
         </NavLink>
         <NavLink
           to="/history"
           className={({ isActive }) =>
             classNames(
               isActive
-                ? "bg-[#F15B43] text-white"
-                : "text-gray-300 hover:bg-gray-700 hover:text-white",
-              "rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
+                ? 'bg-[#F15B43] text-white'
+                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+              'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
             )
           }
         >
           History
         </NavLink>
-        {(session.role === "admin" || session.role === "master") && (
-          <>
-            <NavLink
-              to="/admin/accounts"
-              className={({ isActive }) =>
-                classNames(
-                  isActive
-                    ? "bg-[#F15B43] text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
-                )
-              }
-            >
-              Accounts Manager
-            </NavLink>
-            <NavLink
-              to="/admin/causes"
-              className={({ isActive }) =>
-                classNames(
-                  isActive
-                    ? "bg-[#F15B43] text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
-                )
-              }
-            >
-              Causes Manager
-            </NavLink>
-            <NavLink
-              to="/admin/donations"
-              className={({ isActive }) =>
-                classNames(
-                  isActive
-                    ? "bg-[#F15B43] text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
-                )
-              }
-            >
-              Donations Manager
-            </NavLink>
-          </>
+        {(session.role === 'admin' || session.role === 'master') && (
+          <NavLink
+            to="/admin"
+            className={({ isActive }) =>
+              classNames(
+                isActive
+                  ? 'bg-[#F15B43] text-white'
+                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
+              )
+            }
+          >
+            Admin Dashboard
+          </NavLink>
         )}
 
         <button

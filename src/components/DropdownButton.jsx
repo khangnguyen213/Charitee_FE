@@ -1,15 +1,15 @@
-import React from "react";
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { TiThMenu } from "react-icons/ti";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import Global from "../global";
-import { logout } from "../redux/sessionSlice";
+import React from 'react';
+import { Fragment } from 'react';
+import { Menu, Transition } from '@headlessui/react';
+import { TiThMenu } from 'react-icons/ti';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import Global from '../global';
+import { logout } from '../redux/sessionSlice';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 const DropdownButton = () => {
@@ -24,10 +24,10 @@ const DropdownButton = () => {
       .then((res) => {
         if (res.status === 200) {
           dispatch(logout());
-          navigate("/", { replace: true });
+          navigate('/', { replace: true });
         }
       })
-      .catch((err) => navigate("/404"));
+      .catch((err) => navigate('/404'));
   };
   return (
     <div>
@@ -58,77 +58,46 @@ const DropdownButton = () => {
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={() => navigate("/account")}
+                    onClick={() => navigate('/account')}
                     className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm'
                     )}
                   >
-                    {session.fullname ? session.fullname : "Account"}
+                    {session.fullname
+                      ? session.fullname[0].toUpperCase() +
+                        session.fullname.slice(1)
+                      : 'Account'}
                   </button>
                 )}
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    onClick={() => navigate("/history")}
+                    onClick={() => navigate('/history')}
                     className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm'
                     )}
                   >
                     History
                   </button>
                 )}
               </Menu.Item>
-              {(session.role === "admin" || session.role === "master") && (
-                <>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        onClick={() => navigate("/admin/accounts")}
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block w-full px-4 py-2 text-left text-sm"
-                        )}
-                      >
-                        Accounts Manager
-                      </button>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        onClick={() => navigate("/admin/causes")}
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block w-full px-4 py-2 text-left text-sm"
-                        )}
-                      >
-                        Causes Manager
-                      </button>
-                    )}
-                  </Menu.Item>
-                  <Menu.Item>
-                    {({ active }) => (
-                      <button
-                        onClick={() => navigate("/admin/donations")}
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block w-full px-4 py-2 text-left text-sm"
-                        )}
-                      >
-                        Donations Manager
-                      </button>
-                    )}
-                  </Menu.Item>
-                </>
+              {(session.role === 'admin' || session.role === 'master') && (
+                <Menu.Item>
+                  {({ active }) => (
+                    <button
+                      onClick={() => navigate('/admin')}
+                      className={classNames(
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block w-full px-4 py-2 text-left text-sm'
+                      )}
+                    >
+                      Admin Dashboard
+                    </button>
+                  )}
+                </Menu.Item>
               )}
 
               <Menu.Item>
@@ -136,8 +105,8 @@ const DropdownButton = () => {
                   <button
                     onClick={logoutClickHandler}
                     className={classNames(
-                      active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                      "block w-full px-4 py-2 text-left text-sm"
+                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                      'block w-full px-4 py-2 text-left text-sm'
                     )}
                   >
                     Sign out
