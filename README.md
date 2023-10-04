@@ -55,7 +55,7 @@ Current data comes from my [backend server](https://charitee-be.vercel.app).
 You can create an account to try by your own or you can use one of my accounts listed below.
 I have created some dummy accounts for you to try different functions of the website:
 
-<h1>LIST OF ACCOUNTS</h1>
+<h3>LIST OF ACCOUNTS</h3>
 <table>
   <tr>
     <th>Role</th>
