@@ -62,6 +62,7 @@ const ListButton = () => {
         {(session.role === 'admin' || session.role === 'master') && (
           <NavLink
             to="/admin"
+            reloadDocument={true}
             className={({ isActive }) =>
               classNames(
                 isActive
