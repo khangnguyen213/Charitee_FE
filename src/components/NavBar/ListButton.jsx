@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Global from '../global';
+import Global from '../../global';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../redux/sessionSlice';
+import { logout } from '../../redux/sessionSlice';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ const ListButton = () => {
             classNames(
               isActive
                 ? 'bg-[#F15B43] text-white'
-                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                : 'text-gray-300 hover:bg-gray-800 hover:scale-110 hover:shadow hover:text-white',
               'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
             )
           }
@@ -52,7 +52,7 @@ const ListButton = () => {
             classNames(
               isActive
                 ? 'bg-[#F15B43] text-white'
-                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                : 'text-gray-300 hover:bg-gray-800 hover:scale-110 hover:shadow hover:text-white',
               'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
             )
           }
@@ -66,7 +66,7 @@ const ListButton = () => {
               classNames(
                 isActive
                   ? 'bg-[#F15B43] text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  : 'text-gray-300 hover:bg-gray-800 hover:scale-110 hover:shadow hover:text-white',
                 'rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium'
               )
             }
@@ -77,7 +77,7 @@ const ListButton = () => {
 
         <button
           onClick={logoutClickHandler}
-          className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
+          className="text-gray-300 hover:bg-gray-800 hover:scale-110 hover:shadow hover:text-white rounded-md px-1.5 xl:px-3 py-2 text-sm font-medium"
         >
           Sign out
         </button>

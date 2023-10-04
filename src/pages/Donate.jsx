@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import Footer from "../components/Footer";
-import { BsFillSunFill } from "react-icons/bs";
-import AlertMessage from "../components/AlertMessage";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import Global from "../global";
-import alertify from "alertifyjs";
-import LoadingScreen from "../components/LoadingScreen";
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import Footer from '../components/Home/Footer';
+import { BsFillSunFill } from 'react-icons/bs';
+import AlertMessage from '../components/Global/AlertMessage';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Global from '../global';
+import alertify from 'alertifyjs';
+import LoadingScreen from '../components/Global/LoadingScreen';
 
 const Donate = () => {
   const { causeID } = useParams();
@@ -15,7 +15,7 @@ const Donate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const finishAt = new Date(cause?.finishAt);
   const overdue = new Date() > finishAt;
-  const finished = cause?.status === "finish";
+  const finished = cause?.status === 'finish';
   const maxDonate = cause?.goal - cause?.raised;
   const navigate = useNavigate();
   const {
@@ -25,7 +25,7 @@ const Donate = () => {
     setValue,
   } = useForm();
   const createPayment = (data) => {
-    if (data.method === "PayPal") {
+    if (data.method === 'PayPal') {
       setIsLoading(true);
       const baseUrl = window.location.origin; // Get the base URL of your website
       const returnUrl = `${baseUrl}/success`;
@@ -49,14 +49,14 @@ const Donate = () => {
         })
         .catch((err) => {
           setIsLoading(false);
-          alertify.alert("Notification", err.response.data.error);
+          alertify.alert('Notification', err.response.data.error);
           console.log(err);
         });
     } else {
       setIsLoading(false);
       alertify.alert(
-        "Notification",
-        "This payment method is currently unavailable"
+        'Notification',
+        'This payment method is currently unavailable'
       );
     }
   };
@@ -75,7 +75,7 @@ const Donate = () => {
       })
       .catch((err) => {
         setIsLoading(false);
-        navigate("/404");
+        navigate('/404');
       });
   }, []);
 
@@ -142,7 +142,7 @@ const Donate = () => {
                 {errors.amount && (
                   <AlertMessage>{errors.amount.message}</AlertMessage>
                 )}
-                {errors.amount?.type === "max" && setValue("amount", maxDonate)}
+                {errors.amount?.type === 'max' && setValue('amount', maxDonate)}
                 <div
                   className="grid grid-cols-4 md:grid-cols-2 xl:grid-cols-4 gap-4 w-full mt-2 mb-3"
                   role="toolbar"
@@ -153,7 +153,7 @@ const Donate = () => {
                     data-te-ripple-init
                     data-te-ripple-color="light"
                     onClick={() => {
-                      setValue("amount", 5);
+                      setValue('amount', 5);
                     }}
                   >
                     $5
@@ -164,7 +164,7 @@ const Donate = () => {
                     data-te-ripple-init
                     data-te-ripple-color="light"
                     onClick={() => {
-                      setValue("amount", 10);
+                      setValue('amount', 10);
                     }}
                   >
                     $10
@@ -175,7 +175,7 @@ const Donate = () => {
                     data-te-ripple-init
                     data-te-ripple-color="light"
                     onClick={() => {
-                      setValue("amount", 20);
+                      setValue('amount', 20);
                     }}
                   >
                     $20
@@ -186,7 +186,7 @@ const Donate = () => {
                     data-te-ripple-init
                     data-te-ripple-color="light"
                     onClick={() => {
-                      setValue("amount", 50);
+                      setValue('amount', 50);
                     }}
                   >
                     $50
@@ -199,11 +199,11 @@ const Donate = () => {
                     className="rounded-md w-[95%] float-right"
                     type="number"
                     placeholder="Donation Amount"
-                    {...register("amount", {
-                      required: "This field is required",
+                    {...register('amount', {
+                      required: 'This field is required',
                       min: {
                         value: 1,
-                        message: "Donation amount must be postive",
+                        message: 'Donation amount must be postive',
                       },
                       max: {
                         value: maxDonate,
@@ -224,8 +224,8 @@ const Donate = () => {
                   )}
                 </h1>
                 <input
-                  {...register("method", {
-                    required: "This field is required",
+                  {...register('method', {
+                    required: 'This field is required',
                   })}
                   type="radio"
                   value="PayPal"
@@ -240,8 +240,8 @@ const Donate = () => {
                 </label>
 
                 <input
-                  {...register("method", {
-                    required: "This field is required",
+                  {...register('method', {
+                    required: 'This field is required',
                   })}
                   type="radio"
                   value="Bank Transfer"
@@ -266,8 +266,8 @@ const Donate = () => {
                   <p
                     onClick={() => {
                       alertify.alert(
-                        "Notification",
-                        "Regretfully, this cause is no longer accepting donations. Thank you for your generosity and support."
+                        'Notification',
+                        'Regretfully, this cause is no longer accepting donations. Thank you for your generosity and support.'
                       );
                     }}
                     className="rounded-md hover:bg-[#ffffff] uppercase hover:text-[#ee5e48] font-[Jost] font-bold py-2 mt-5 text-lg bg-transparent border-2 hoverborder-transparent border-white duration-300 text-center text-white hover:text-xl cursor-pointer"

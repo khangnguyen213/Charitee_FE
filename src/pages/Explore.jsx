@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import Footer from "../components/Footer";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import Global from "../global";
-import PaginationButtons from "../components/PaginationButtons";
-import { useSelector } from "react-redux";
-import LoadingScreen from "../components/LoadingScreen";
+import React, { useState, useEffect } from 'react';
+import Footer from '../components/Home/Footer';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Global from '../global';
+import PaginationButtons from '../components/Global/PaginationButtons';
+import { useSelector } from 'react-redux';
+import LoadingScreen from '../components/Global/LoadingScreen';
 
 const Explore = () => {
   const session = useSelector((state) => state.session);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
   const [totalPage, setTotalPage] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +37,7 @@ const Explore = () => {
 
   const truncateString = (str, num) => {
     if (str?.length > num) {
-      return str.slice(0, num) + "...";
+      return str.slice(0, num) + '...';
     } else {
       return str;
     }
@@ -68,7 +68,7 @@ const Explore = () => {
       {isLoading && <LoadingScreen />}
 
       <div className="sm:container my-44 sm:my-24 px-6 mx-auto duration-200">
-        {window.scrollTo({ left: 0, top: 0, behavior: "smooth" })}
+        {window.scrollTo({ left: 0, top: 0, behavior: 'smooth' })}
         <section className="mb-32 text-gray-800 text-center md:text-left">
           <h2 className="font-[Jost] text-3xl sm:text-4xl font-bold mb-6 text-center duration-200">
             Explore Causes
@@ -120,15 +120,15 @@ const Explore = () => {
                       />
                       <button
                         onClick={
-                          session._id !== ""
+                          session._id !== ''
                             ? () => navigate(`/donate/${cause._id}`)
-                            : () => navigate("/login")
+                            : () => navigate('/login')
                         }
                       >
                         <div
                           className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out"
                           style={{
-                            backgroundColor: "rgba(251, 251, 251, 0.2)",
+                            backgroundColor: 'rgba(251, 251, 251, 0.2)',
                           }}
                         ></div>
                       </button>
@@ -139,9 +139,9 @@ const Explore = () => {
                     <h5
                       className="text-xl font-bold mb-3 cursor-pointer hover:opacity-60"
                       onClick={
-                        session._id !== ""
+                        session._id !== ''
                           ? () => navigate(`/donate/${cause._id}`)
-                          : () => navigate("/login")
+                          : () => navigate('/login')
                       }
                     >
                       {cause.title}
@@ -181,9 +181,9 @@ const Explore = () => {
                     </p>
                     <button
                       onClick={
-                        session._id !== ""
+                        session._id !== ''
                           ? () => navigate(`/donate/${cause._id}`)
-                          : () => navigate("/login")
+                          : () => navigate('/login')
                       }
                       className="rounded-md font-[Rubik] bg-[#F15B43] text-white hover:text-[#F15B43] flex items-center hover:bg-transparent border-2 border-transparent hover:border-[#F15B43] transition duration-150 ease-in-out  py-2 md:py-4 float-right justify-center w-full mt-3 sm:w-fit sm:px-8   "
                     >

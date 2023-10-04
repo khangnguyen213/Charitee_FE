@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import Global from "../global";
-import { useForm } from "react-hook-form";
-import AlertMessage from "../components/AlertMessage";
-import alertify from "alertifyjs";
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+import Global from '../global';
+import { useForm } from 'react-hook-form';
+import AlertMessage from '../components/Global/AlertMessage';
+import alertify from 'alertifyjs';
 
 const ResetPassword = () => {
   const { token } = useParams();
@@ -25,8 +25,8 @@ const ResetPassword = () => {
       .then((res) => {
         if (res.status === 200) {
           alertify.alert(
-            "Email Sent",
-            "Please check your email, click the button in the email, and enter new password on the page that opens."
+            'Email Sent',
+            'Please check your email, click the button in the email, and enter new password on the page that opens.'
           );
         }
       })
@@ -47,17 +47,17 @@ const ResetPassword = () => {
         .then((res) => {
           if (res.status === 200) {
             alertify.alert(
-              "Successful Reset Password",
-              "Login again",
+              'Successful Reset Password',
+              'Login again',
               function () {
-                navigate("/login");
+                navigate('/login');
               }
             );
           }
         })
         .catch((err) => setErrSer(err.response.data));
     } else {
-      setErrSer("The password confirmation does not match.");
+      setErrSer('The password confirmation does not match.');
     }
   };
   useEffect(() => {}, []);
@@ -65,11 +65,11 @@ const ResetPassword = () => {
   return (
     <div className="w-full bg-gray-200 h-screen flex justify-center items-center">
       <form
-        onSubmit={handleSubmit(token === "request" ? onRequest : onChange)}
+        onSubmit={handleSubmit(token === 'request' ? onRequest : onChange)}
         className="bg-white w-fit h-fit shadow-md rounded px-8 pt-6 pb-8 mb-4 mx-4"
       >
         <div className="mb-4">
-          {token === "request" && (
+          {token === 'request' && (
             <>
               <h1 className="block text-gray-700 text-lg font-bold mb-2">
                 Reset Password
@@ -84,7 +84,7 @@ const ResetPassword = () => {
                 id="email"
                 type="email"
                 placeholder="Email"
-                {...register("email", { required: "Email is required" })}
+                {...register('email', { required: 'Email is required' })}
               />
               {errors.email && (
                 <AlertMessage>{errors.email.message}</AlertMessage>
@@ -92,7 +92,7 @@ const ResetPassword = () => {
               {errSer && <AlertMessage>{errSer}</AlertMessage>}
             </>
           )}
-          {token !== "request" && (
+          {token !== 'request' && (
             <>
               <h1 className="block text-gray-700 text-lg font-bold mb-2">
                 Change Password
@@ -105,11 +105,11 @@ const ResetPassword = () => {
                 id="password"
                 type="password"
                 placeholder="Password"
-                {...register("password", {
-                  required: "Password is required",
+                {...register('password', {
+                  required: 'Password is required',
                   min: {
                     value: 8,
-                    message: "Password must be at least 8 characters",
+                    message: 'Password must be at least 8 characters',
                   },
                 })}
               />
@@ -121,8 +121,8 @@ const ResetPassword = () => {
                 id="password2"
                 type="password"
                 placeholder="Confirm Password"
-                {...register("password2", {
-                  required: "Confirm your password",
+                {...register('password2', {
+                  required: 'Confirm your password',
                 })}
               />
               {errors.password2 && (
@@ -148,7 +148,7 @@ const ResetPassword = () => {
          
         </div> */}
         <div className="flex items-center justify-between">
-          {token === "request" && (
+          {token === 'request' && (
             <button
               className="bg-[#F15B43] hover:bg-[#f0482f] text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
               type="submit"
@@ -156,7 +156,7 @@ const ResetPassword = () => {
               Send password reset email
             </button>
           )}
-          {token !== "request" && (
+          {token !== 'request' && (
             <button
               className="bg-[#F15B43] hover:bg-[#f0482f] text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
               type="submit"

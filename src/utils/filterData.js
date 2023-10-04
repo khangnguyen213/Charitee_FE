@@ -103,7 +103,7 @@ export const filterCountCauseData = ({ rawData }) => {
 
 export const filterStatusCauseData = ({ rawData }) => {
   const causes = rawData;
-  let labels = ['inactive', 'active', 'finished'];
+  let labels = ['active', 'finished'];
   let data = [];
 
   data = labels.reduce((res, item) => {

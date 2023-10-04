@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Global from '../global';
-import PaginationButtons from '../components/PaginationButtons';
+import PaginationButtons from '../components/Global/PaginationButtons';
 import { useNavigate } from 'react-router-dom';
 import alertify from 'alertifyjs';
 import { useSelector } from 'react-redux';

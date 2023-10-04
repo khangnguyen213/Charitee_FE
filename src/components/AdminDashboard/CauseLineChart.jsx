@@ -41,8 +41,8 @@ const CauseLineChart = (props) => {
           {
             label: 'Number of new causes',
             data,
-            borderColor: '#ea580c',
-            backgroundColor: '#fb923c',
+            borderColor: '#f97316',
+            backgroundColor: '#fed7aa',
             fill: true,
           },
         ],

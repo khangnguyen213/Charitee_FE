@@ -5,8 +5,8 @@ import { TiThMenu } from 'react-icons/ti';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
-import Global from '../global';
-import { logout } from '../redux/sessionSlice';
+import Global from '../../global';
+import { logout } from '../../redux/sessionSlice';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');

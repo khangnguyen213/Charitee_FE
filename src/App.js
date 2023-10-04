@@ -1,11 +1,5 @@
 import { Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import SignUp from './pages/SignUp';
-import Explore from './pages/Explore';
-import ScrollToTop from './components/ScrollToTop';
-import Donate from './pages/Donate';
-import CausesManager from './pages/CausesManager';
+
 import {
   Input,
   Ripple,
@@ -15,10 +9,16 @@ import {
   initTE,
 } from 'tw-elements';
 import { useEffect } from 'react';
+
+import Home from './pages/Home';
+import Login from './pages/Login';
+import SignUp from './pages/SignUp';
+import Explore from './pages/Explore';
+import Donate from './pages/Donate';
+import CausesManager from './pages/CausesManager';
 import CauseCreate from './pages/CauseCreate';
 import NotFoundPage from './pages/NotFoundPage';
 import ConfirmAccount from './pages/ConfirmAccount';
-import NavBar from './components/NavBar';
 import ResetPassword from './pages/ResetPassword';
 import AccountsManager from './pages/AccountsManager';
 import Account from './pages/Account';
@@ -27,7 +27,10 @@ import DonateCancel from './pages/DonateCancel';
 import DonationsManager from './pages/DonationsManager';
 import History from './pages/History';
 import AdminDashboard from './pages/AdminDashboard';
-import SideNavBar from './components/SideNavBar';
+
+import NavBar from './components/NavBar/NavBar';
+import SideNavBar from './components/NavBar/SideNavBar';
+import ScrollToTop from './components/Global/ScrollToTop';
 
 function App() {
   useEffect(() => {

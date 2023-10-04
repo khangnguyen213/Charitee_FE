@@ -1,8 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Global from "../global";
-import { useSelector } from "react-redux";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Global from '../../global';
+import { useSelector } from 'react-redux';
 
 export const Causes = (props) => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const Causes = (props) => {
 
   const truncateString = (str, num) => {
     if (str?.length > num) {
-      return str.slice(0, num) + "...";
+      return str.slice(0, num) + '...';
     } else {
       return str;
     }
@@ -53,9 +53,9 @@ export const Causes = (props) => {
             causes.map((cause) => {
               return (
                 <div className="mb-6 lg:mb-0 " key={cause._id}>
-                  <div className="relative bg-[#F4F2F1] rounded-lg ">
+                  <div className="transition ease-in-out relative rounded-lg border border-[#cdcdcdb1] bg-white shadow-lg hover:shadow-2xl hover:scale-[1.02] duration-300">
                     <div className="flex">
-                      <div className="relative overflow-hidden bg-no-repeat bg-cover rounded-lg mx-4 -mt-4">
+                      <div className="relative overflow-hidden bg-no-repeat bg-cover rounded-lg">
                         <img src={cause.image} alt="cause" className="w-full" />
                         <button
                           onClick={() => navigate(`/donate/${cause._id}`)}
@@ -99,9 +99,9 @@ export const Causes = (props) => {
                         </div>
                         <button
                           onClick={
-                            session._id !== ""
+                            session._id !== ''
                               ? () => navigate(`/donate/${cause._id}`)
-                              : () => navigate("/login")
+                              : () => navigate('/login')
                           }
                           className="font-[Rubik] bg-[#F15B43] w-fit text-white hover:text-[#F15B43] text-lg font-bold py-2 px-5 flex items-center hover:bg-transparent border-2 border-transparent hover:border-[#F15B43] transition duration-150 ease-in-out"
                         >

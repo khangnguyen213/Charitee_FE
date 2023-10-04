@@ -1,7 +1,7 @@
-import React from "react";
-import service1 from "../assests/images/services1.svg";
-import service2 from "../assests/images/services2.svg";
-import service3 from "../assests/images/services3.svg";
+import React from 'react';
+import service1 from '../../assests/images/services1.svg';
+import service2 from '../../assests/images/services2.svg';
+import service3 from '../../assests/images/services3.svg';
 
 const Information = () => {
   return (

@@ -14,9 +14,9 @@ const StatusDonusChart = (props) => {
         datasets: [
           {
             data,
-            backgroundColor: ['#fef08a', '#fca5a5', '#bbf7d0'],
-            borderColor: ['#facc15', '#ef4444', '#4ade80'],
-            borderWidth: 1,
+            backgroundColor: ['#fed7aa', '#f97316'],
+            borderColor: ['#f97316', '#f97316'],
+            borderWidth: 2,
           },
         ],
       }}

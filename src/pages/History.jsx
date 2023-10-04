@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Global from "../global";
-import PaginationButtons from "../components/PaginationButtons";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Global from '../global';
+import PaginationButtons from '../components/Global/PaginationButtons';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const History = () => {
   const sessionRole = useSelector((state) => state.session.role);
@@ -34,7 +34,7 @@ const History = () => {
         })
         .catch((err) => {
           if (err.response.status === 403) {
-            navigate("/404");
+            navigate('/404');
           }
         });
     }
@@ -55,7 +55,7 @@ const History = () => {
   };
 
   useEffect(() => {
-    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
   }, [pageNumber]);
 
   function formatDateMMYY(date) {
@@ -65,11 +65,11 @@ const History = () => {
 
     // Pad the month with a leading zero if necessary
     if (month < 10) {
-      month = "0" + month;
+      month = '0' + month;
     }
 
     // Return the formatted string
-    return month + "/" + year.toString().substr(-2);
+    return month + '/' + year.toString().substr(-2);
   }
 
   return (
@@ -154,7 +154,7 @@ const History = () => {
                         <tr
                           key={donation._id}
                           className={`${
-                            index % 2 === 0 ? "bg-neutral-200" : "bg-white"
+                            index % 2 === 0 ? 'bg-neutral-200' : 'bg-white'
                           } border-b items-center transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600 dark:hover:text-white`}
                         >
                           <td className="whitespace-nowrap font-[Rubik] text-sm sm:text-base px-2 sm:px-6 xl:px-2 py-1 sm:py-4 font-medium">
@@ -185,7 +185,7 @@ const History = () => {
                             ${donation.amount}
                           </td>
                           <td className="hidden md-1:table-cell lg:whitespace-nowrap xl:whitespace-normal font-[Rubik] text-sm sm:text-base px-2 sm:px-6 xl:px-2 py-1 sm:py-4">
-                            {donatedAt.toLocaleDateString("en-US")}
+                            {donatedAt.toLocaleDateString('en-US')}
                           </td>
                           <td className="md-1:hidden lg:whitespace-nowrap xl:whitespace-normal font-[Rubik] text-sm sm:text-base px-2 sm:px-6 xl:px-2 py-1 sm:py-4">
                             {formatDateMMYY(donatedAt)}

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import bg1 from "../assests/images/bg1.jpg";
-import Footer from "../components/Footer";
-import AlertMessage from "../components/AlertMessage";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import Global from "../global";
-import { useDispatch } from "react-redux";
-import { login } from "../redux/sessionSlice";
-import LoadingScreen from "../components/LoadingScreen";
-import alertify from "alertifyjs";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import bg1 from '../assests/images/bg1.jpg';
+import Footer from '../components/Home/Footer';
+import AlertMessage from '../components/Global/AlertMessage';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import Global from '../global';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/sessionSlice';
+import LoadingScreen from '../components/Global/LoadingScreen';
+import alertify from 'alertifyjs';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Login = () => {
         setIsLoading(false);
         if (res.status === 200) {
           dispatch(login(res.data));
-          navigate("/");
+          navigate('/');
         }
       })
       .catch((err) => {
@@ -69,7 +69,7 @@ const Login = () => {
                     className="block min-h-[auto] w-full rounded border-2 border-[#f15a43b5] bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                     id="emailInput"
                     placeholder="Email address"
-                    {...register("email", { required: "Email is required" })}
+                    {...register('email', { required: 'Email is required' })}
                   />
                   {errors.email && (
                     <AlertMessage>{errors.email.message}</AlertMessage>
@@ -83,8 +83,8 @@ const Login = () => {
                     className="block min-h-[auto] w-full rounded border-2 border-[#f15a43b5] bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none "
                     id="passwordInput"
                     placeholder="Password"
-                    {...register("password", {
-                      required: "Password is required",
+                    {...register('password', {
+                      required: 'Password is required',
                     })}
                   />
                   {errors.password && (
@@ -96,7 +96,7 @@ const Login = () => {
                   {/* <!-- Forgot password link --> */}
                   <button
                     type="button"
-                    onClick={() => navigate("/reset-password/request")}
+                    onClick={() => navigate('/reset-password/request')}
                     className="text-[#263B5C] transition duration-300 ease-in-out hover:font-bold hover:text-[#183460] focus:text-[#163361]"
                   >
                     Forgot password?
@@ -121,11 +121,11 @@ const Login = () => {
                 {/* <!-- Social login buttons --> */}
                 <div
                   className="cursor-pointer mb-3 flex w-full items-center justify-center rounded bg-primary px-7 pb-2.5 pt-3 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  style={{ backgroundColor: "#3b5998" }}
+                  style={{ backgroundColor: '#3b5998' }}
                   onClick={() => {
                     alertify.alert(
-                      "Notification",
-                      "This login method is currently available"
+                      'Notification',
+                      'This login method is currently available'
                     );
                   }}
                 >
@@ -145,7 +145,7 @@ const Login = () => {
                 <p className="mb-0 mt-2 pt-1 text-sm font-semibold">
                   Don't have an account?
                   <button
-                    onClick={() => navigate("/signup")}
+                    onClick={() => navigate('/signup')}
                     className="text-danger ml-2 transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700"
                   >
                     Register

@@ -1,12 +1,12 @@
-import { useNavigate, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import imgPlaceholder from "../assests/images/img_placeholder.webp";
-import AlertMessage from "../components/AlertMessage";
-import axios from "axios";
-import Global from "../global";
-import alertify from "alertifyjs";
-import { useSelector } from "react-redux";
+import { useNavigate, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import imgPlaceholder from '../assests/images/img_placeholder.webp';
+import AlertMessage from '../components/Global/AlertMessage';
+import axios from 'axios';
+import Global from '../global';
+import alertify from 'alertifyjs';
+import { useSelector } from 'react-redux';
 
 const CauseCreate = () => {
   const { causeID } = useParams();
@@ -20,8 +20,8 @@ const CauseCreate = () => {
     setValue,
     formState: { errors },
   } = useForm();
-  const imageWatch = watch("image");
-  const raisedWatch = watch("raised");
+  const imageWatch = watch('image');
+  const raisedWatch = watch('raised');
   const submitCreate = (data) => {
     axios
       .post(`${Global.BASE_BACKEND_API}/cause`, data, {
@@ -29,7 +29,7 @@ const CauseCreate = () => {
       })
       .then((res) => {
         if (res.status === 201) {
-          alertify.notify("Successful", "success", 1, function () {
+          alertify.notify('Successful', 'success', 1, function () {
             navigate(`/admin/causes/${res.data}`);
           });
         }
@@ -37,7 +37,7 @@ const CauseCreate = () => {
       .catch((err) => {
         alertify.alert(err.response.statusText);
         if (err.response.status === 403) {
-          navigate("/404");
+          navigate('/404');
         }
         setErrAuth(err.response.statusText);
       });
@@ -54,37 +54,37 @@ const CauseCreate = () => {
       )
       .then((res) => {
         if (res.status === 200) {
-          alertify.alert("Information", "Cause Updated", function () {
-            window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+          alertify.alert('Information', 'Cause Updated', function () {
+            window.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
           });
         }
       })
       .catch((err) => {
         alertify.alert(err.response.statusText);
         if (err.response.status === 403) {
-          navigate("/404");
+          navigate('/404');
         }
         setErrAuth(err.response.statusText);
       });
   };
   const onSubmit = (data) => {
     alertify.confirm(
-      "Notification",
+      'Notification',
       `Confirm to create/update cause?`,
       function () {
-        if (causeID === "create") {
+        if (causeID === 'create') {
           submitCreate(data);
         } else {
           submitUpdate(data);
         }
       },
       function () {
-        alertify.error("Cancel");
+        alertify.error('Cancel');
       }
     );
   };
   useEffect(() => {
-    if (causeID !== "create") {
+    if (causeID !== 'create') {
       axios
         .get(`${Global.BASE_BACKEND_API}/cause`, {
           params: { causeID },
@@ -92,19 +92,19 @@ const CauseCreate = () => {
         })
         .then((res) => {
           const causeData = res.data.causes[0];
-          setValue("title", causeData.title);
-          setValue("description", causeData.description);
+          setValue('title', causeData.title);
+          setValue('description', causeData.description);
           setValue(
-            "finishAt",
+            'finishAt',
             new Date(causeData.finishAt).toISOString().slice(0, 10)
           );
-          setValue("image", causeData.image);
-          setValue("goal", causeData.goal);
-          setValue("raised", causeData.raised);
+          setValue('image', causeData.image);
+          setValue('goal', causeData.goal);
+          setValue('raised', causeData.raised);
         })
         .catch((err) => {
           if (err.response.status === 403) {
-            navigate("/404");
+            navigate('/404');
           }
         });
     }
@@ -116,12 +116,12 @@ const CauseCreate = () => {
   }, []);
   return (
     <div className="font-[Rubik] h-fit min-h-screen px-[5vh] xl:px-[10vh] pt-44 sm:pt-20">
-      {["admin", "master"].includes(sessionRole) && (
+      {['admin', 'master'].includes(sessionRole) && (
         <div>
           <h1 className="font-[Jost] font-bold text-3xl sm:text-4xl py-6">
-            {causeID !== "create"
-              ? "Edit Project Detail"
-              : "Create New Project"}
+            {causeID !== 'create'
+              ? 'Edit Project Detail'
+              : 'Create New Project'}
           </h1>
           {errorAuth && <AlertMessage>{errorAuth}</AlertMessage>}
           <div>
@@ -139,11 +139,11 @@ const CauseCreate = () => {
                     rows={3}
                     type="text"
                     className={`${
-                      causeID !== "create"
-                        ? "pointer-events-none bg-[#bcbcbc7d]"
-                        : "bg-[#ffffffb1]"
+                      causeID !== 'create'
+                        ? 'pointer-events-none bg-[#bcbcbc7d]'
+                        : 'bg-[#ffffffb1]'
                     } rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 text-lg`}
-                    {...register("title", { required: "Title is required" })}
+                    {...register('title', { required: 'Title is required' })}
                   />
                   {errors.title && (
                     <div className="w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw]">
@@ -158,17 +158,17 @@ const CauseCreate = () => {
                   <input
                     type="date"
                     className="rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 bg-[#ffffffb1] text-lg"
-                    {...register("finishAt", {
-                      required: "This field is required",
+                    {...register('finishAt', {
+                      required: 'This field is required',
                       validate: (value, formValues) => {
                         const date = new Date(value);
                         if (date > Date.now()) {
                           return true;
                         } else {
-                          if (causeID === "create") {
-                            return "The period must be last longer";
+                          if (causeID === 'create') {
+                            return 'The period must be last longer';
                           } else {
-                            return "The period must be in the future";
+                            return 'The period must be in the future';
                           }
                         }
                       },
@@ -180,7 +180,7 @@ const CauseCreate = () => {
                     </div>
                   )}
                 </div>
-                {causeID !== "create" && (
+                {causeID !== 'create' && (
                   <div className="mb-2">
                     <label className="inline-block w-[118px] text-xl align-top mb-2">
                       Raised
@@ -188,7 +188,7 @@ const CauseCreate = () => {
                     <input
                       className="rounded-md pointer-events-none w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 bg-[#bcbcbc7d] text-lg"
                       type="number"
-                      {...register("raised")}
+                      {...register('raised')}
                     />
                   </div>
                 )}
@@ -200,14 +200,14 @@ const CauseCreate = () => {
                   <input
                     className="rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 bg-[#ffffffb1] text-lg"
                     type="number"
-                    {...register("goal", {
-                      required: "You must specific the target amount",
+                    {...register('goal', {
+                      required: 'You must specific the target amount',
                       min: {
-                        value: causeID !== "create" ? raisedWatch : 1,
+                        value: causeID !== 'create' ? raisedWatch : 1,
                         message:
-                          causeID !== "create"
-                            ? "Goal amount must higher than raised amooun"
-                            : "This amount must be positive",
+                          causeID !== 'create'
+                            ? 'Goal amount must higher than raised amooun'
+                            : 'This amount must be positive',
                       },
                     })}
                   />
@@ -225,8 +225,8 @@ const CauseCreate = () => {
                   <input
                     className="rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 bg-[#ffffffb1] text-lg"
                     type="url"
-                    {...register("image", {
-                      required: "You must provided an image",
+                    {...register('image', {
+                      required: 'You must provided an image',
                     })}
                   />
                   {errors.image && (
@@ -243,8 +243,8 @@ const CauseCreate = () => {
                     className="rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 bg-[#ffffffb1] text-lg"
                     rows={8}
                     type="text"
-                    {...register("description", {
-                      required: "This field is required",
+                    {...register('description', {
+                      required: 'This field is required',
                     })}
                   />
                   {errors.description && (

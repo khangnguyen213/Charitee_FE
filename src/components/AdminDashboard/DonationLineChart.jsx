@@ -124,7 +124,7 @@ const DonationLineChart = (props) => {
                 label: 'Amount of raised fund ($)',
                 data: filteredData.data,
                 lineTension: 0.3,
-                backgroundColor: '#fdba74',
+                backgroundColor: '#fed7aa',
                 borderColor: '#f97316',
                 fill: true,
               },

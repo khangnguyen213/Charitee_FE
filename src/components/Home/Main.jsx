@@ -1,5 +1,5 @@
-import React from "react";
-import img1 from "../assests/images/img1.png";
+import React from 'react';
+import img1 from '../../assests/images/img1.png';
 
 const Main = (props) => {
   return (
@@ -21,7 +21,7 @@ const Main = (props) => {
           onClick={() => {
             props.onScrollClick();
           }}
-          className="bg-[#65C9BB] px-10 py-5 hover:bg-transparent border border-transparent hover:border-white duration-300"
+          className="bg-[#65C9BB] rounded-2xl px-10 py-5 hover:bg-transparent border border-transparent hover:border-white duration-300"
         >
           Ongoing Programs
         </button>

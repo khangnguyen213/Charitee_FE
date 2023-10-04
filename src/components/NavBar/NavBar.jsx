@@ -1,27 +1,27 @@
-import React, { useEffect } from "react";
-import logo from "../assests/images/logo.webp";
-import { AiFillHeart } from "react-icons/ai";
-import { BsSearchHeart } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
-import DropdownButton from "./DropdownButton";
-import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
-import Global from "../global";
-import { login, logout } from "../redux/sessionSlice";
-import ListButton from "./ListButton";
+import React, { useEffect } from 'react';
+import logo from '../../assests/images/logo.webp';
+import { AiFillHeart } from 'react-icons/ai';
+import { BsSearchHeart } from 'react-icons/bs';
+import { useNavigate } from 'react-router-dom';
+import DropdownButton from './DropdownButton';
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import Global from '../../global';
+import { login, logout } from '../../redux/sessionSlice';
+import ListButton from './ListButton';
 
 const NavBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const sessionRole = useSelector((state) => state.session.role);
   const registerClickHandler = () => {
-    navigate("/signup");
+    navigate('/signup');
   };
   const homeClickHandler = () => {
-    navigate("/");
+    navigate('/');
   };
   const exploreClickHandler = () => {
-    navigate("/explore");
+    navigate('/explore');
   };
   useEffect(() => {
     axios
@@ -34,7 +34,7 @@ const NavBar = () => {
         }
       })
       .catch((err) => {
-        if (sessionRole && sessionRole !== "") {
+        if (sessionRole && sessionRole !== '') {
           dispatch(logout());
         }
       });
@@ -63,32 +63,32 @@ const NavBar = () => {
       </div>
 
       <div>
-        {(sessionRole === "user" ||
-          sessionRole === "master" ||
-          sessionRole === "admin") && <DropdownButton />}
-        {(sessionRole === "user" ||
-          sessionRole === "master" ||
-          sessionRole === "admin") && <ListButton />}
-        {sessionRole !== "user" &&
-          sessionRole !== "master" &&
-          sessionRole !== "admin" && (
+        {(sessionRole === 'user' ||
+          sessionRole === 'master' ||
+          sessionRole === 'admin') && <DropdownButton />}
+        {(sessionRole === 'user' ||
+          sessionRole === 'master' ||
+          sessionRole === 'admin') && <ListButton />}
+        {sessionRole !== 'user' &&
+          sessionRole !== 'master' &&
+          sessionRole !== 'admin' && (
             <div className="flex flex-row text-sm sm:text-base">
               <button
                 className="hidden xs-0:block mr-4"
-                onClick={() => navigate("/login")}
+                onClick={() => navigate('/login')}
               >
                 Login
               </button>
               <button
                 onClick={registerClickHandler}
-                className="hidden sm:flex bg-[#F15B43] py-2 px-8 items-center hover:bg-transparent border border-transparent hover:border-white duration-300"
+                className="hidden rounded-lg sm:flex bg-[#F15B43] py-2 px-8 items-center hover:bg-transparent border border-transparent hover:border-white duration-300"
               >
-                <AiFillHeart className="inline-block text-xl" />{" "}
+                <AiFillHeart className="inline-block text-xl" />{' '}
                 <span className="pl-2">Register To Donate Now</span>
               </button>
               <button
                 onClick={registerClickHandler}
-                className="flex sm:hidden bg-[#F15B43] py-1 sm:py-2 px-4 sm:px-8 items-center hover:bg-transparent border border-transparent hover:border-white duration-300"
+                className="flex rounded-lg sm:hidden bg-[#F15B43] py-1 sm:py-2 px-4 sm:px-8 items-center hover:bg-transparent border border-transparent hover:border-white duration-300"
               >
                 <span className="pl-2">Register</span>
               </button>

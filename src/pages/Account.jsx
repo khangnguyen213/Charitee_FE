@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import avtPlaceholder from "../assests/images/avtPlaceholder.png";
-import AlertMessage from "../components/AlertMessage";
-import axios from "axios";
-import Global from "../global";
-import alertify from "alertifyjs";
-import { useSelector } from "react-redux";
-import LoadingScreen from "../components/LoadingScreen";
+import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import avtPlaceholder from '../assests/images/avtPlaceholder.png';
+import AlertMessage from '../components/Global/AlertMessage';
+import axios from 'axios';
+import Global from '../global';
+import alertify from 'alertifyjs';
+import { useSelector } from 'react-redux';
+import LoadingScreen from '../components/Global/LoadingScreen';
 
 const Account = () => {
   const [errorAuth, setErrAuth] = useState();
@@ -23,8 +23,8 @@ const Account = () => {
   } = useForm();
   const onSubmit = (data) => {
     alertify.confirm(
-      "Notification",
-      "Update account?",
+      'Notification',
+      'Update account?',
       function () {
         setIsLoading(true);
 
@@ -34,7 +34,7 @@ const Account = () => {
           })
           .then(() => {
             setIsLoading(false);
-            alertify.success("Updated");
+            alertify.success('Updated');
           })
           .catch((error) => {
             setIsLoading(false);
@@ -42,12 +42,12 @@ const Account = () => {
           });
       },
       function () {
-        alertify.error("Cancel");
+        alertify.error('Cancel');
       }
     );
   };
   useEffect(() => {
-    if (session._id !== "") {
+    if (session._id !== '') {
       axios
         .get(`${Global.BASE_BACKEND_API}/account`, {
           params: { accountID: session._id },
@@ -55,15 +55,15 @@ const Account = () => {
         })
         .then((res) => {
           const accountData = res.data.accounts[0];
-          setValue("email", accountData.email);
-          setValue("fullname", accountData.fullname);
-          setValue("phone", accountData.phone);
-          setValue("address", accountData.address);
-          setValue("role", accountData.role);
+          setValue('email', accountData.email);
+          setValue('fullname', accountData.fullname);
+          setValue('phone', accountData.phone);
+          setValue('address', accountData.address);
+          setValue('role', accountData.role);
         })
         .catch((err) => {
           if (err.response.status === 403) {
-            navigate("/404");
+            navigate('/404');
           }
         });
     }
@@ -72,10 +72,10 @@ const Account = () => {
     <>
       {isLoading && <LoadingScreen />}
       <div className="font-[Rubik] h-fit min-h-screen px-[4vw] xl:px-[7vw] pt-44 sm:pt-20">
-        {session._id !== "" && (
+        {session._id !== '' && (
           <div>
             <h1 className="font-[Jost] font-bold text-3xl sm:text-4xl py-6">
-              {isUpdate ? "Update Information" : "Account Information"}
+              {isUpdate ? 'Update Information' : 'Account Information'}
             </h1>
             {errorAuth && <AlertMessage>{errorAuth}</AlertMessage>}
             <div>
@@ -92,8 +92,8 @@ const Account = () => {
                       className="rounded-md pointer-events-none bg-[#bcbcbc7d] w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1  text-lg"
                       type="text"
                       disabled
-                      {...register("email", {
-                        required: "This field is required",
+                      {...register('email', {
+                        required: 'This field is required',
                       })}
                     />
                     {errors.email && (
@@ -109,12 +109,12 @@ const Account = () => {
                     <input
                       className={`${
                         !isUpdate
-                          ? "pointer-events-none bg-[#bcbcbc7d]"
-                          : "bg-[#ffffffb1]"
+                          ? 'pointer-events-none bg-[#bcbcbc7d]'
+                          : 'bg-[#ffffffb1]'
                       } rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 text-lg`}
                       type="text"
-                      {...register("fullname", {
-                        required: "This field is required",
+                      {...register('fullname', {
+                        required: 'This field is required',
                       })}
                     />
                     {errors.fullname && (
@@ -130,12 +130,12 @@ const Account = () => {
                     <input
                       className={`${
                         !isUpdate
-                          ? "pointer-events-none bg-[#bcbcbc7d]"
-                          : "bg-[#ffffffb1]"
+                          ? 'pointer-events-none bg-[#bcbcbc7d]'
+                          : 'bg-[#ffffffb1]'
                       } rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1 text-lg`}
                       type="text"
-                      {...register("phone", {
-                        required: "This field is required",
+                      {...register('phone', {
+                        required: 'This field is required',
                       })}
                     />
                     {errors.phone && (
@@ -151,12 +151,12 @@ const Account = () => {
                     <input
                       className={`${
                         !isUpdate
-                          ? "pointer-events-none bg-[#bcbcbc7d]"
-                          : "bg-[#ffffffb1]"
+                          ? 'pointer-events-none bg-[#bcbcbc7d]'
+                          : 'bg-[#ffffffb1]'
                       } rounded-md w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1  text-lg`}
                       type="text"
-                      {...register("address", {
-                        required: "This field is required",
+                      {...register('address', {
+                        required: 'This field is required',
                       })}
                     />
                     {errors.address && (
@@ -173,8 +173,8 @@ const Account = () => {
                       className="rounded-md pointer-events-none bg-[#bcbcbc7d] w-full sm:w-[70vw] md:w-[45vw] xl:w-[35vw] border-2 border-black p-1  text-lg"
                       type="text"
                       disabled
-                      {...register("role", {
-                        required: "This field is required",
+                      {...register('role', {
+                        required: 'This field is required',
                       })}
                     />
                   </div>
@@ -199,7 +199,7 @@ const Account = () => {
                       <button
                         className="rounded-md mt-2 px-10 sm:px-20 sm:ml-2 py-1.5 bg-[#F15B43] hover:bg-[#ffffff96] text-white hover:text-black border-2 border-black font-[Jost] font-bold"
                         type="button"
-                        onClick={() => navigate("/reset-password/request")}
+                        onClick={() => navigate('/reset-password/request')}
                       >
                         CHANGE PASSWORD
                       </button>

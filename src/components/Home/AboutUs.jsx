@@ -1,5 +1,5 @@
-import React from "react";
-import about2 from "../assests/images/about2.webp";
+import React from 'react';
+import about2 from '../../assests/images/about2.webp';
 
 const AboutUs = (props) => {
   return (
@@ -18,7 +18,7 @@ const AboutUs = (props) => {
           onClick={() => {
             props.onScrollClick();
           }}
-          className="bg-[#F15B43] text-white py-4 px-8 flex items-center border-2 border-transparent hover:bg-transparent hover:border-[#F15B43] hover:text-[#F15B43] hover:font-bold duration-300 mb-8"
+          className="bg-[#F15B43] rounded-2xl text-white py-4 px-8 flex items-center border-2 border-transparent hover:bg-transparent hover:border-[#F15B43] hover:text-[#F15B43] hover:font-bold duration-300 mb-8"
         >
           Discover More
         </button>
