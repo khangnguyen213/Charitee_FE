@@ -103,7 +103,7 @@ export const Causes = (props) => {
                               ? () => navigate(`/donate/${cause._id}`)
                               : () => navigate('/login')
                           }
-                          className="font-[Rubik] bg-[#F15B43] w-fit text-white hover:text-[#F15B43] text-lg font-bold py-2 px-5 flex items-center hover:bg-transparent border-2 border-transparent hover:border-[#F15B43] transition duration-150 ease-in-out"
+                          className="font-[Rubik] rounded-lg bg-[#F15B43] w-fit text-white hover:text-[#F15B43] text-lg font-bold py-2 px-5 flex items-center hover:bg-transparent border-2 border-transparent hover:border-[#F15B43] transition duration-150 ease-in-out"
                         >
                           Donate
                         </button>
