@@ -85,4 +85,4 @@ You also can adjust the website using your own backend server by editing BASE_BA
 
 ## Demo
 
-Link: [demo](https://charitee-rj-tw.netlify.app/)
+Link: [demo](https://charitee-fe.vercel.app/)
