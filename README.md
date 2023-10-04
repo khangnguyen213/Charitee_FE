@@ -4,6 +4,18 @@ This is the website I made for my capstone project in the web-fullstack course. 
 
 This repository only includes the front-end part of my website. You can visit the back-end part [here](https://github.com/khangnguyen213/Charitee_BE).
 
+## Features:
+
+- User registration, login, and account authorization
+- Email confirmation when registering and reset password
+- Displaying current data from the database
+- Search and filter data
+- Transaction tracking for user
+- Admin summary statistic
+- Admin Manager
+
+## Technologies:
+
 Technologies I used include:
 
 - ReactJS
@@ -15,6 +27,7 @@ I also used:
 - Redux (for global state)
 - react-hook-form (for simple form)
 - Axios (for fetching API)
+- Chart.js + react-chartjs-2
 
 The design of this website I gathered from the internet and not from my idea.
 
