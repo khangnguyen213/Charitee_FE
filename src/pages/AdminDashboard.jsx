@@ -7,14 +7,17 @@ import StatusDonutChart from '../components/AdminDashboard/StatusDonutChart';
 import DonationLineChart from '../components/AdminDashboard/DonationLineChart';
 import { useSelector } from 'react-redux';
 import NotFoundPage from './NotFoundPage';
+import LoadingScreen from '../components/Global/LoadingScreen';
 
 const AdminDashboard = () => {
   const [countAccount, setCountAccount] = useState(0);
   const [causes, setCauses] = useState();
   const [donations, setDonations] = useState();
+  const [isLoading, setIsLoading] = useState(false);
   const sessionRole = useSelector((state) => state.session.role);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .all([
         axios.get(`${Global.BASE_BACKEND_API}/account`, {
@@ -32,6 +35,7 @@ const AdminDashboard = () => {
           setCountAccount(account.data.count);
           setCauses(cause.data);
           setDonations(donation.data);
+          setIsLoading(false);
         })
       )
       .catch((err) => {
@@ -41,7 +45,8 @@ const AdminDashboard = () => {
 
   return (
     <>
-      {['admin', 'master'].includes(sessionRole) && (
+      {isLoading && <LoadingScreen />}
+      {['admin', 'master'].includes(sessionRole) && !isLoading && (
         <div className="flex flex-wrap items-center justify-between pt-2 mx-8">
           <>
             <h1 className="text-[#F15B43] font-['Rubik'] font-bold text-3xl md:text-4xl text-center box-border w-full mb-2">
