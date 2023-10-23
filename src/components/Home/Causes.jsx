@@ -55,8 +55,12 @@ export const Causes = (props) => {
                 <div className="mb-6 lg:mb-0 " key={cause._id}>
                   <div className="transition ease-in-out relative rounded-lg border border-[#cdcdcdb1] bg-white shadow-lg hover:shadow-2xl hover:scale-[1.02] duration-300">
                     <div className="flex">
-                      <div className="relative overflow-hidden bg-no-repeat bg-cover rounded-lg">
-                        <img src={cause.image} alt="cause" className="w-full" />
+                      <div className="relative h-60 overflow-hidden rounded-lg">
+                        <img
+                          src={cause.image}
+                          alt="cause"
+                          className="w-full aspect-[5/4]"
+                        />
                         <button
                           onClick={() => navigate(`/donate/${cause._id}`)}
                         >
