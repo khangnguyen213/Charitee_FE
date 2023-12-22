@@ -20,10 +20,6 @@ export const Causes = (props) => {
       .then((res) => {
         setCauses(res.data.causes);
       });
-
-    axios.get(`https://booking-hotel-be.vercel.app/overview`).then((res) => {
-      console.log(res.data);
-    });
   }, []);
 
   const truncateString = (str, num) => {
